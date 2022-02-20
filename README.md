@@ -1,46 +1,62 @@
-# Getting Started with Create React App
+# React.JS Agap2it Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Challenge
 
-## Available Scripts
+We would like to see a small web app with two pages (routes): a details page for the TV show "Powerpuff Girls",
 
-In the project directory, you can run:
+and an episode detail page with information about specific episodes.
 
-### `npm start`
+### Page 1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The TV show page should at least display the following information (you're free to add more):
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Show title
+- Show Description
+- Show cover image
+- Episode list. Every episode in the list should link to a details page for that specific episode
 
-### `npm test`
+### Page 2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The episode detail page should contain at least:
 
-### `npm run build`
+- Episode-title
+- Episode Summary
+- Episode cover image
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`http://www.tvmaze.com/api`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Requirements
 
-### `npm run eject`
+- Setup two routes in your app, one for TV shows and one for episodes.
+- Retrieve data from TV Maze REST API.
+- Use of typescript.
+- Use React to render UI components.
+- Use "Create React App" to bootstrap your project.
+- Use of react-hooks.
+- Do not leave any unused dependencies or scripts
+- Setup state management - redux - and data flow.
+- Style your components with css-in-js, make sure that the end result is responsive and has at least one breakpoint.
+- All code should be checked-in into a Git repository.
+- Documentation is optional but appreciated, the same goes for comments in your code.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Nice to have
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you feel you have time to express yourself more here's the list of few points to guide you:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Add unit and snapshot tests.
+- URL where the app can be viewed and seen working (use any platform of your preference: heroku.com, aws.amazon.com, etc)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Evaluation points
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- use of community best practices
+- use of clean code which is self documenting
+- use of domain driven design
+- tests for business logic
+- clean and extendable project structure, usage of best practices
+- use of css-in-js
+- use of design frameworks
+- use of code quality checkers such as linters and build tools
+- use of git with appropriate commit messages
+- documentation: README and inline code comment
