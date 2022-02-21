@@ -8,6 +8,13 @@ $primary-font-color: rgba(0, 0, 0, 0.9);
   margin: 20px auto;
   color: $primary-font-color;
   padding: 10px;
+
+  span#app-info {
+    font-size: larger;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 section#top {

@@ -1,43 +1,57 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
+import { episodesSelector, IEpisodeState } from '../features/episodesSlice'
+import { tvshowSelector } from '../features/tvshowSlice'
 
 export const Episode: React.FC = () => {
-  const episode = {
-    id: 1662009,
-    url: 'https://www.tvmaze.com/episodes/1662009/the-powerpuff-girls-3x38-the-oct-father',
-    name: 'The Oct-father',
-    season: 3,
-    number: 38,
-    type: 'regular',
-    airdate: '2019-06-16',
-    airtime: '17:30',
-    airstamp: '2019-06-16T21:30:00+00:00',
-    runtime: 15,
-    rating: {
-      average: null,
-    },
-    image: null,
-    summary: "<p>When Princess Morbucks steals Octi, Bubbles' reaction surprises everyone, even her sisters.</p>",
-    _links: {
-      self: {
-        href: 'https://api.tvmaze.com/episodes/1662009',
-      },
-    },
-  }
+  const params = useParams()
+  const seasonId = params.seasonId?.replace('s', '')
+  const episodeId = params.episodeId?.replace('ep', '')
+
+  const { tvshow, loading: tvshowLoading, error: tvshowError } = useSelector(tvshowSelector)
+  const { episodes, loading: episodesLoading, error: episodesError } = useSelector(episodesSelector)
+  const loading = episodesLoading || tvshowLoading
+  const error = episodesError || tvshowError
+
+  const episode = episodes.filter((ep: IEpisodeState) => ep.season === +seasonId!).find((ep: IEpisodeState) => ep.number === +episodeId!)
+
+  if (loading)
+    return (
+      <div id='main'>
+        <span id='app-info'>Loading...</span>
+      </div>
+    )
+
+  if (error)
+    return (
+      <div id='main'>
+        <span id='app-info'>An error has been occurred, please refresh the page...</span>
+      </div>
+    )
+
+  if (!episode)
+    return (
+      <div id='main'>
+        <span id='app-info'>Cannot find the episode</span>
+      </div>
+    )
 
   return (
     <div id='main'>
       <section id='top'>
         <div className='cover'>
-          <img src={episode.image || 'https://static.tvmaze.com/uploads/images/medium_portrait/11/27896.jpg'} alt='Cover' />
+          <img src={episode.image.medium} alt='Episode thumbnail' />
         </div>
         <div className='description'>
           <span>
             <Link to='/'>Go back</Link>
           </span>
-          <h1>The powerpuff Girls</h1>
-          <h2>Season 1 - Episode 3: {episode.name}</h2>
-          <div>{episode.summary.replace(/<[/]?p>/g, '')}</div>
+          <h1>{tvshow.name}</h1>
+          <h2>
+            Season {seasonId} - Episode {episodeId}: {episode.name}
+          </h2>
+          <div>{episode.summary?.replace(/<[/]?\w+>/g, '')}</div>
         </div>
       </section>
     </div>
