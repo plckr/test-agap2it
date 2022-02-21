@@ -1,0 +1,45 @@
+$primary-color: #3c948b;
+$primary-font-color: rgba(0, 0, 0, 0.9);
+
+#main {
+  background-color: white;
+  max-width: 1024px;
+  height: 100%;
+  margin: 20px auto;
+  color: $primary-font-color;
+  padding: 10px;
+}
+
+section#top {
+  display: flex;
+
+  .cover {
+    padding-right: 20px;
+    img {
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    }
+  }
+}
+
+section#episodes {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: $primary-color;
+      color: #fff;
+    }
+    tr:nth-child(odd) {
+      background-color: #ebebeb;
+    }
+  }
+}
