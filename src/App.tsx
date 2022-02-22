@@ -19,7 +19,7 @@ function App() {
       <Routes>
         <Route path='/'>
           <Route index element={<Home />} />
-          <Route path=':seasonId/:episodeId' element={<Episode />} />
+          <Route path='s:seasonId/ep:episodeId' element={<Episode />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Route>
       </Routes>
