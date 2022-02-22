@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { AppInfo } from '../components/AppInfo'
 import { episodesSelector } from '../features/episodesSlice'
 import { tvshowSelector } from '../features/tvshowSlice'
 
@@ -17,26 +18,9 @@ export const Home: React.FC = () => {
     return group
   }, {})
 
-  if (loading)
-    return (
-      <div id='main'>
-        <span id='app-info'>Loading...</span>
-      </div>
-    )
-
-  if (error)
-    return (
-      <div id='main'>
-        <span id='app-info'>An error has been occurred, please refresh the page...</span>
-      </div>
-    )
-
-  if (!tvshow)
-    return (
-      <div id='main'>
-        <span id='app-info'>Cannot find the episode</span>
-      </div>
-    )
+  if (loading) return <AppInfo message='Loading...' />
+  if (error) return <AppInfo message='An error has been occurred, please refresh the page...' />
+  if (!tvshow) return <AppInfo message='Cannot find the show' showHomeButton={true} />
 
   return (
     <div id='main'>
