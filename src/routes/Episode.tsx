@@ -4,17 +4,22 @@ import { Link, useParams } from 'react-router-dom'
 import { episodesSelector, IEpisodeState } from '../features/episodesSlice'
 import { tvshowSelector } from '../features/tvshowSlice'
 
+type params = {
+  seasonId: string
+  episodeId: string
+}
+
 export const Episode: React.FC = () => {
-  const params = useParams()
-  const seasonId = params.seasonId?.replace('s', '')
-  const episodeId = params.episodeId?.replace('ep', '')
+  const params = useParams<params>()
+  const seasonId = +params.seasonId!
+  const episodeId = +params.episodeId!
 
   const { tvshow, loading: tvshowLoading, error: tvshowError } = useSelector(tvshowSelector)
   const { episodes, loading: episodesLoading, error: episodesError } = useSelector(episodesSelector)
   const loading = episodesLoading || tvshowLoading
   const error = episodesError || tvshowError
 
-  const episode = episodes.filter((ep: IEpisodeState) => ep.season === +seasonId!).find((ep: IEpisodeState) => ep.number === +episodeId!)
+  const episode = episodes.filter((ep: IEpisodeState) => ep.season === seasonId).find((ep: IEpisodeState) => ep.number === episodeId)
 
   if (loading)
     return (
