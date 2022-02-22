@@ -8,9 +8,8 @@ interface props {
 export const AppInfo: React.FC<props> = ({ message, showHomeButton = false }) => {
   const navigate = useNavigate()
 
-  const handleGoHomeButton = () => {
-    navigate('/')
-  }
+  // button onClick -> Go home
+  const handleGoHomeButton = () => navigate('/')
 
   return (
     <div id='main'>

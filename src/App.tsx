@@ -9,6 +9,7 @@ import { fetchTvshow } from './features/tvshowSlice'
 function App() {
   const dispatch = useDispatch()
 
+  // fetch tvshow and episodes
   useEffect(() => {
     dispatch(fetchTvshow())
     dispatch(fetchEpisodes())

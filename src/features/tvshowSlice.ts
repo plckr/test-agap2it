@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { AppDispatch, RootState } from '../app/store'
 
+// Types and interfaces
 export interface TvshowState {
   id: number
   url: string

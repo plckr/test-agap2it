@@ -8,9 +8,11 @@ import { tvshowSelector } from '../features/tvshowSlice'
 export const Home: React.FC = () => {
   const { tvshow, loading: tvshowLoading, error: tvshowError } = useSelector(tvshowSelector)
   const { episodes, loading: episodesLoading, error: episodesError } = useSelector(episodesSelector)
+
   const loading = episodesLoading || tvshowLoading
   const error = episodesError || tvshowError
 
+  // group episodes by season
   const episodesBySeason = episodes.reduce((group: any, episode) => {
     const { season } = episode
     group[season] = group[season] || []

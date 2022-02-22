@@ -17,6 +17,7 @@ export const Episode: React.FC = () => {
 
   const { tvshow, loading: tvshowLoading, error: tvshowError } = useSelector(tvshowSelector)
   const { episodes, loading: episodesLoading, error: episodesError } = useSelector(episodesSelector)
+
   const loading = episodesLoading || tvshowLoading
   const error = episodesError || tvshowError
 

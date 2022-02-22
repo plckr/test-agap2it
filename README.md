@@ -1,5 +1,13 @@
 # React.JS Agap2it Challenge
 
+## Routes
+
+`/` -> Home Page
+
+`/s<number>/ep<number>` -> Episode details page
+
+---
+
 ## Challenge
 
 We would like to see a small web app with two pages (routes): a details page for the TV show "Powerpuff Girls",
